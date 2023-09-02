@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modifyActivity">
+
+    <EditText
+        android:id="@+id/inputPW_modify"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="비밀번호를 입력해주세요."
+        android:inputType="textPersonName"
+        android:maxLength="10"
+        android:textColor="#A9A9A9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputID_modify"
+        app:layout_constraintVertical_bias="0.047"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/FName_modify"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="이름"
+        android:inputType="textPersonName"
+        android:maxLength="10"
+        android:textColor="#A9A9A9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LName_modify"
+        app:layout_constraintVertical_bias="0.029"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/sex_modify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성별"
+        android:textColor="#4D4D4D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.339"
+        app:layout_constraintStart_toEndOf="@+id/number_picker_modify"
+        app:layout_constraintTop_toBottomOf="@+id/bday_modify"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_modify"
+        android:layout_width="81dp"
+        android:layout_height="89dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toEndOf="@+id/sex_modify"
+        app:layout_constraintTop_toBottomOf="@+id/bday_modify"
+        app:layout_constraintVertical_bias="0.028">
+
+        <RadioButton
+            android:id="@+id/Male_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남성"
+            tools:layout_editor_absoluteX="274dp"
+            tools:layout_editor_absoluteY="344dp" />
+
+        <RadioButton
+            android:id="@+id/Female_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여성"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="274dp"
+            tools:layout_editor_absoluteY="300dp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/id_modify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개인 정보 수정"
+        android:textColor="#4D4D4D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/faceCHange_modify"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <EditText
+        android:id="@+id/inputID_modify"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="아이디를 입력해주세요."
+        android:inputType="textPersonName"
+        android:maxLength="10"
+        android:textColor="#A9A9A9"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bday_modify"
+        app:layout_constraintVertical_bias="0.352"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/bday_modify"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="생년월일 6자리"
+        android:inputType="textPersonName"
+        android:maxLength="6"
+        android:textColor="#A9A9A9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FName_modify"
+        app:layout_constraintVertical_bias="0.028"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/LName_modify"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="성"
+        android:inputType="textPersonName"
+        android:maxLength="10"
+        android:textColor="#A9A9A9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_modify"
+        app:layout_constraintVertical_bias="0.032"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <NumberPicker
+        android:id="@+id/number_picker_modify"
+        android:layout_width="62dp"
+        android:layout_height="66dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toEndOf="@+id/age_modify"
+        app:layout_constraintTop_toBottomOf="@+id/bday_modify"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/age_modify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나이"
+        android:textColor="#4D4D4D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bday_modify"
+        app:layout_constraintVertical_bias="0.108" />
+
+    <TextView
+        android:id="@+id/faceCHange_modify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="Face CHange"
+        android:textColor="#7878FF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111" />
+
+    <ImageButton
+        android:id="@+id/imageButton_modify"
+        android:layout_width="299dp"
+        android:layout_height="55dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputPW_modify"
+        app:layout_constraintVertical_bias="0.142"
+        app:srcCompat="@drawable/fix" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

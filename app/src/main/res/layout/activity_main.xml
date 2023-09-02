@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:text="Face CHange"
+        android:fontFamily="@font/pretendard_bold"
         android:textColor="#7878FF"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -23,38 +24,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.109" />
 
-
-    <ImageButton
-        android:id="@+id/Personal_Color_B"
-        android:layout_width="192dp"
-        android:layout_height="172dp"
-        android:layout_marginEnd="61dp"
-        android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.239"
-        app:srcCompat="@drawable/personal_button"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/Make_Up_B"
-        android:layout_width="192dp"
-        android:layout_height="172dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.968"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.237"
-        app:srcCompat="@drawable/makeup_button"
-        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/Set_main"
@@ -74,15 +43,16 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="397dp"
-        android:layout_height="194dp"
+        android:layout_height="370dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.592"
-        app:srcCompat="@drawable/result" />
+        app:layout_constraintVertical_bias="0.956"
+        app:srcCompat="@drawable/result1" />
 
     <TextView
         android:id="@+id/textView2"
@@ -92,25 +62,25 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.017" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="116dp"
-        android:layout_height="112dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.078"
         app:srcCompat="@drawable/none" />
 
     <TextView
@@ -122,11 +92,39 @@
         android:text="퍼스널 컬러 진단을\n받아보세요!"
         android:textColor="#FFFFFF"
         android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.28" />
+
+    <ImageButton
+        android:id="@+id/imageButton_personal"
+        android:layout_width="398dp"
+        android:layout_height="173dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574" />
+        app:layout_constraintTop_toBottomOf="@+id/FaceCHange"
+        app:layout_constraintVertical_bias="0.366"
+        app:srcCompat="@drawable/personal_button"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="※ 비회원 로그인 시 결과가 저장되지 않습니다 ※"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

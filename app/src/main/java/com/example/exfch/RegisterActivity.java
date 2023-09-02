@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Locale;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import com.google.firebase.auth.*;
@@ -53,8 +54,12 @@ public class RegisterActivity extends AppCompatActivity {
     String user = "User";
     int num = 0, num2;
 
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
+    CheckInf checkInf = new CheckInf();
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance(); //파이어베이스 데이터베이스 연동
+    DatabaseReference databaseReference = database.getReference();
+    DatabaseReference conditionRef = databaseReference.child("User");
+    DatabaseReference usercount = databaseReference.child("User Count");
 
     //pw 영문 및 숫자만 허용
     protected InputFilter filter= new InputFilter() {
@@ -148,11 +153,6 @@ public class RegisterActivity extends AppCompatActivity {
         context_userid = userID;
     }
 
-    private FirebaseDatabase database = FirebaseDatabase.getInstance(); //파이어베이스 데이터베이스 연동
-    DatabaseReference databaseReference = database.getReference();
-    DatabaseReference conditionRef = databaseReference.child("User");
-    DatabaseReference usercount = databaseReference.child("User Count");
-
     int over = 0;
     final int[] count = {0};
 
@@ -190,7 +190,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
         overlap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -204,9 +203,13 @@ public class RegisterActivity extends AppCompatActivity {
                             if(snapshot.exists()){
                                 String value = snapshot.getValue().toString();
                                 count[0] = Integer.parseInt(value);
+                                ck(count[0]);
                             } else {
                                 count[0] = 0;
+                                Toast.makeText(getApplicationContext(), "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                                over = 1;
                             }
+
                         }
 
                         @Override
@@ -214,32 +217,52 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }
                     });
-                    if(count[0] == 0){
-                        Toast.makeText(getApplicationContext(), "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
-                        over = 1;
-                    } else if(count[0] >= 1){
-                        for(int i = 1; i <= count[0]; i++){
-                            conditionRef.child(user+i).child("userID").addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    String value = snapshot.getValue(String.class);
-                                    if(snapshot.exists()){
-                                        Toast.makeText(getApplicationContext(), "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show();
-                                        over = 0;
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
-                                        over = 1;
-                                    }
-                                }
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-                                }
-                            });
-                        }
-                    }
                 }
             }
         });
+    }
+
+    int in = 0;
+
+    //idTrue : 중복 아이디 미존재 시 1, 존재 시 0, 기본값 0
+    //idFalse : 중복 아이디 존재 시 1, 미존재 시 0, 기본값 1 = 중복 아이디 존재
+    public void ck(int count) {
+        over = 0;
+        if(in == 0) {
+            for (int i = 1; i <= count; i++) {
+                int finalI = i;
+                conditionRef.child(user + i).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Map<String, String> user1 = (Map) snapshot.getValue();
+                        String gid = user1.get("userID");
+                        if (gid.equals(userID) == true) { //중복 아이디 존재
+                            checkInf.setidTrue(1);
+                        } else if (gid.equals(userID) == false) { //중복 아이디 미존재
+                            checkInf.setidFalse(0);
+                        }
+
+                        if (finalI == count) {
+                            if (checkInf.getidFalse() == 0 && checkInf.getidTrue() == 0) {
+                                Toast.makeText(getApplicationContext(), "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                                checkInf.setidFalse(1);
+                                checkInf.setidTrue(0);
+                                over = 1;
+                            } else if (checkInf.getidTrue() == 1) {
+                                Toast.makeText(getApplicationContext(), "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show();
+                                checkInf.setidFalse(1);
+                                checkInf.setidTrue(0);
+                                over = 0;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+            }
+        }
     }
 
     public void AddNewUser(String userID, String userPW, String FName, String LName, String userBday, String userSex, int userAge) {
@@ -253,10 +276,18 @@ public class RegisterActivity extends AppCompatActivity {
             conditionRef.child(user+num).setValue(new_user);
             usercount.setValue(num);
 
+            in = 1;
+
             Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
             finish();
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        super.onBackPressed();
     }
 }

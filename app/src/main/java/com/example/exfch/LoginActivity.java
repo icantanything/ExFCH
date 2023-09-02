@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +110,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // notloginB 클릭될 시 MainActivity 화면으로 이동
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("사용자번호", -1);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -155,11 +158,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(value.equals(id) == true){
                             checkIDPW.checkid = value;
                             checkIDPW.usernum = finalI;
-                            System.out.println("id: " + checkIDPW.checkid);
-                            System.out.println("pw: " + pw);
-                            System.out.println("num: " + checkIDPW.usernum);
                             checkIDPW.check = 1;
-                            System.out.println("1. check: " + checkIDPW.check);
                             checkidpw(id, pw, finalI);
                         } else if(checkIDPW.check != 1 && finalI == count[0]){
                             Toast.makeText(getApplicationContext(), "아이디를 확인해주세요.", Toast.LENGTH_SHORT).show();
@@ -180,13 +179,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String snap = snapshot.getValue().toString();
-                System.out.println(num + ". snap: " + snap);
                 if (snap.equals(id) == true) {
                     conditionRef.child(user+num).child("userPW").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot2) {
                             String snap2 = snapshot2.getValue().toString();
-                            System.out.println(num + ". snap: " + snap2);
                             if (snap2.equals(pw) == true) {
                                 //Login success
                                 Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
@@ -204,7 +201,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
                 } else if(snap.equals(id) == false) {
-                    System.out.println("2/ " + num + ". snap: " + snap);
                     Toast.makeText(getApplicationContext(), "아이디를 확인해주세요.", Toast.LENGTH_SHORT).show();
                 }
             }

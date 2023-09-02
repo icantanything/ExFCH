@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Face CHange"
+        android:fontFamily="@font/pretendard_bold"
         android:textColor="#7878FF"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -22,92 +23,59 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.111" />
 
-    <TextView
-        android:id="@+id/id_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="아이디 로그인"
-        android:maxLength="10"
-        android:textColor="#4D4D4D"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="325dp"
+        android:layout_height="121dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="@+id/id_login"
+        app:layout_constraintTop_toBottomOf="@+id/FaceCHange_login"
+        app:layout_constraintVertical_bias="1.0">
 
-    <EditText
-        android:id="@+id/InputID_login"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="아이디를 입력해주세요."
-        android:maxLength="10"
-        android:textColor="#A9A9A9"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261"
-        tools:ignore="TouchTargetSizeCheck" />
+        <EditText
+            android:id="@+id/InputID_login"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:hint="아이디를 입력해주세요."
+            android:inputType="textPersonName"
+            android:maxLength="10"
+            android:textColor="#A9A9A9"
+            app:layout_constraintBottom_toTopOf="@+id/InputPW_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.674"
+            tools:ignore="TouchTargetSizeCheck" />
 
-    <EditText
-        android:id="@+id/InputPW_login"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="비밀번호를 입력해주세요."
-        android:maxLength="10"
-        android:textColor="#A9A9A9"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338"
-        tools:ignore="TouchTargetSizeCheck" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/findid_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="아이디 찾기"
-        android:textColor="#4D4D4D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        <EditText
+            android:id="@+id/InputPW_login"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:hint="비밀번호를 입력해주세요."
+            android:inputType="textPersonName"
+            android:maxLength="10"
+            android:textColor="#A9A9A9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/InputID_login"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/InputID_login"
+            app:layout_constraintTop_toBottomOf="@+id/FaceCHange_login"
+            app:layout_constraintVertical_bias="0.224"
+            tools:ignore="TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/findpw_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="비밀번호 찾기"
-        android:textColor="#4D4D4D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
-
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/"
-        android:textColor="#4D4D4D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.303"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/register_login"
@@ -115,39 +83,124 @@
         android:layout_height="wrap_content"
         android:text="회원가입"
         android:textColor="#4D4D4D"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="162dp"
+        android:layout_height="21dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/FaceCHange_login"
+        app:layout_constraintVertical_bias="0.289">
 
-    <ImageButton
-        android:id="@+id/loginB"
-        android:layout_width="299dp"
-        android:layout_height="55dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        android:contentDescription="로그인 버튼-성공 시 메인화면으로 이동"
+        <TextView
+            android:id="@+id/findid_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아이디 찾기"
+            android:textColor="#4D4D4D"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.396" />
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:textColor="#4D4D4D"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.303"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.396" />
+
+        <TextView
+            android:id="@+id/findpw_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 찾기"
+            android:textColor="#4D4D4D"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.396" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/id_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:autoSizeMaxTextSize="30sp"
+        android:autoSizeMinTextSize="10sp"
+        android:maxLength="10"
+        android:text="아이디 로그인"
+        android:textColor="#4D4D4D"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FaceCHange_login"
+        app:layout_constraintVertical_bias="0.968" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="301dp"
+        android:layout_height="114dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.209">
 
-    <ImageButton
-        android:id="@+id/notloginB"
-        android:layout_width="299dp"
-        android:layout_height="55dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        android:contentDescription="비로그인 버튼-성공 시 메인화면으로 이동"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594"
-        app:srcCompat="@drawable/notlogin" />
+        <ImageButton
+            android:id="@+id/loginB"
+            android:layout_width="299dp"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="로그인 버튼-성공 시 메인화면으로 이동"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/login" />
 
+        <ImageButton
+            android:id="@+id/notloginB"
+            android:layout_width="299dp"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="비로그인 버튼-성공 시 메인화면으로 이동"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.594"
+            app:srcCompat="@drawable/notlogin" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
